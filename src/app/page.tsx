@@ -17,7 +17,7 @@ export default function Home() {
         `https://www.reddit.com/r/memes.json?&limit=20${after ? `&after=${after}` : ''}`
       );
 
-      const newMemes = response.data.data.children.slice(1).map((post) => {
+      const newMemes = (response.data.data.children.slice(1) as any[]).map((post: any) => {
         const postData = post.data;
         const image = postData.url;
         const text = postData.title;
